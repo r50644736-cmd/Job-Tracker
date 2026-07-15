@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -29,16 +29,16 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-900 to-primary-700 p-4">
-            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md p-8">
                 <div className="text-center mb-8">
                     <div className="text-4xl mb-3">🎯</div>
-                    <h1 className="text-2xl font-bold text-gray-900">JobTrackr</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">JobTrackr</h1>
                     <p className="text-gray-500 text-sm mt-1">Sign in to your job search dashboard</p>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                             Username
                         </label>
                         <input
@@ -53,7 +53,7 @@ export default function LoginPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                             Password
                         </label>
                         <input
@@ -81,6 +81,13 @@ export default function LoginPage() {
                     >
                         {loading ? 'Signing in...' : 'Sign in'}
                     </button>
+                    
+                    <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+                        Don't have an account?{' '}
+                        <Link to="/register" className="text-primary-600 hover:text-primary-500 font-medium">
+                            Sign up
+                        </Link>
+                    </p>
                 </form>
             </div>
         </div>
